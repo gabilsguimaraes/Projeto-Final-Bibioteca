@@ -1,0 +1,10 @@
+CRUDs (minimo 3)
+Relação entre pelo menos 2 CRUDs
+Herança (superclasse com métodos comuns a varias entidades)
+Polimorfismo (sobrescrita e sobrecarga)
+Classe abstrata
+Interface
+Encapsulamento
+MVC
+Logs
+Cadastro em arquivo

@@ -1,6 +1,6 @@
 package br.edu.up.projetofinal;
 
-import br.edu.up.projwtofinal.utils.Util;
+import br.edu.up.projetofinal.utils.Util;
 import br.edu.up.projetofinal.views.LivroView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,7 +24,7 @@ public class Main {
     private static void processaEscolhaUsuario(Scanner scanner, int op) {
         switch (op) {
             case 0 -> System.out.println("Programa encerrado");
-            case 1 -> ToDoView.iniciar(scanner);
+            case 1 -> LivroView.iniciar(scanner);
             case 99 -> Util.showFeedbackMessage("Informe um valor inteiro.");
             default -> Util.showFeedbackMessage("Opção invalida! Favor escolher opção existente no menu.");
         }
