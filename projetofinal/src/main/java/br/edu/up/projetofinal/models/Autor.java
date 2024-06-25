@@ -8,8 +8,8 @@ public class Autor {
 
     public Autor() { }
 
-    public Autor(UUID uuid, String nome) {
-        this.uuid = uuid;
+    public Autor(String nome) {
+        this.uuid = UUID.randomUUID();
         this.nome = nome;
     }
 

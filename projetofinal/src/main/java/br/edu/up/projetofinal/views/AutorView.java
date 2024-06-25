@@ -1,15 +1,16 @@
 package br.edu.up.projetofinal.views;
 
+
 import br.edu.up.projetofinal.controllers.LivroController;
-import br.edu.up.projetofinal.models.Livro;
+import br.edu.up.projetofinal.models.Autor;
 import br.edu.up.projetofinal.utils.Util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.Scanner;
 import java.util.UUID;
 
-public class LivroView {
+public class AutorView {
+
     private static final Logger logger = LogManager.getLogger(LivroView.class);
 
     public static void iniciar(Scanner scanner) {
@@ -23,7 +24,7 @@ public class LivroView {
     }
     private static void exibirMenu() {
         System.out.println("╔════════════════════════╗");
-        System.out.println("║      »BIBLIOTECA«      ║");
+        System.out.println("║        »AUTOR«         ║");
         System.out.println("╚════════════════════════╝");
         System.out.println("1 - »Cadastrar«");
         System.out.println("2 - »Alterar«");
@@ -35,29 +36,20 @@ public class LivroView {
     private static void exibirEscolha(Scanner scanner, int op) {
         switch (op) {
             case 0 -> Util.showFeedbackMessage("");
-            case 1 -> cadastrar(scanner);
-            case 2 -> atualizar(scanner);
-            case 3 -> remover(scanner);
-            case 4 -> listar();
+            case 1 -> cadastrarAutor(scanner);
+            case 2 -> atualizarAutor(scanner);
+            case 3 -> removerAutor(scanner);
+            case 4 -> listarAutor();
 
             case 99 -> Util.showFeedbackMessage("Informe um valor inteiro.");
             default -> Util.showFeedbackMessage("Opção invalida! Favor escolher opção existente no menu.");
         }
     }
 
-    private static void cadastrar(Scanner scanner) {
+    private static void cadastrarAutor(Scanner scanner) {
         try {
-            System.out.println("Digite o titulo: ");
-            var titulo = scanner.nextLine();
-
-            System.out.println("Digite o autor: ");
-            var autor = scanner.nextLine();
-
-            System.out.println("Digite o gênero: ");
-            var genero = scanner.nextLine();
-
-            System.out.println("Digite a editora: ");
-            var editora = scanner.nextLine();
+            System.out.println("Digite o nome do Autor: ");
+            var nome = scanner.nextLine();
 
             /*Aqui a gente pode fazer igual com a opção de mostrar os dados
             do genero/autor/editora para dai selecionar por uuid:
@@ -70,45 +62,32 @@ public class LivroView {
             var usuario = UsuarioController.buscarUsuarioPorUUID(UUID.fromString(uuid));*/
 
             // criando o objeto
-            var livro = new Livro(titulo, autor, genero, editora);
+            var autor = new Autor(nome);
 
             //salvando o objeto tarefa
-            LivroController.cadastrar(livro);
+            LivroController.cadastrar(autor);
 
         } catch (Exception ex) {
             logger.error("Ocorreu um erro ao tentar cadastrar um livro.", ex);
         }
     }
 
-
-    private static void atualizar(Scanner scanner) {
+    private static void atualizarAutor(Scanner scanner) {
         try {
-            listar();
-            System.out.println("Qual Livro você deseja atualizar?");
+            listarAutor();
+            System.out.println("Qual Autor você deseja atualizar?");
             var uuid = scanner.nextLine();
 
             System.out.println("####################################");
             System.out.println("ATUALIZAÇÃO");
             System.out.println("####################################");
 
-            System.out.println("Digite o título: ");
-            var titulo = scanner.nextLine();
-
-            System.out.println("Digite o autor: ");
-            var autor = scanner.nextLine();
-
-            System.out.println("Digite o gênero: ");
-            var genero = scanner.nextLine();
-
-            System.out.println("Digite a editora: ");
-            var editora = scanner.nextLine();
+            System.out.println("Digite o nome do Autor: ");
+            var nome = scanner.nextLine();
 
             // criando o objeto
-            var livro = new Livro(titulo, autor, genero, editora);
-            livro.setTitulo(titulo);
-            livro.setAutor(autor);
-            livro.setGenero(genero);
-            livro.setEditora(editora);
+            var autor = new Autor(nome);
+            autor.setNome(nome);
 
             //salvando o objeto tarefa
             TarefaController.atualizar(UUID.fromString(uuid), tarefa);
@@ -122,9 +101,9 @@ public class LivroView {
         }
     }
 
-    private static void remover(Scanner scanner) {
+    private static void removerAutor(Scanner scanner) {
         try {
-            listar();
+            listarAutor();
             System.out.println("Qual Tarefa você deseja remover? ");
             var uuid = scanner.nextLine();
 
@@ -135,7 +114,7 @@ public class LivroView {
         }
     }
 
-    private static void listar() {
+    private static void listarAutor() {
         var livros = LivroController.listar();
         System.out.println("######## LISTA DE LIVROS ############");
         livros.forEach(livro -> {

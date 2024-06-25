@@ -39,6 +39,22 @@ public class Livro {
         return editora;
     }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public void setEditora(Editora editora) {
+        this.editora = editora;
+    }
+
     @Override
     public String toString() {
         return "Livro{" +
