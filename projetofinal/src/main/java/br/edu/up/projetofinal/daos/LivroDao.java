@@ -30,16 +30,14 @@ public abstract class LivroDao extends BaseDao {
             return null;
         }
     }
+
     private static Livro parse(String linha) {
         var dados = linha.split(";");
         var uuid = UUID.fromString(dados[0].toString());
-
 
         var livro = new Livro (dados[1], dados[2], dados[3]);
         livro.setUuid(uuid);
 
         return livro;
     }
-
-
 }

@@ -59,15 +59,18 @@ public class LivroView {
             System.out.println("Digite a editora: ");
             var editora = scanner.nextLine();
 
-            /*Aqui a gente pode fazer igual com a opção de mostrar os dados
-            do genero/autor/editora para dai selecionar por uuid:
+            /*
+            *
+            Aqui queria colocar a opção de escolher se o livro é digital ou físico,
+            deixei isso aqui comentado pra talvez depois usar de base:
 
             UsuarioView.exibirDadosUsuarios();
             System.out.println("Escolha o usuario por UUID: ");
             var uuid = scanner.nextLine();
 
-            // Buscando os dados do usuario
-            var usuario = UsuarioController.buscarUsuarioPorUUID(UUID.fromString(uuid));*/
+            var usuario = UsuarioController.buscarUsuarioPorUUID(UUID.fromString(uuid));
+            *
+            */
 
             // criando o objeto
             var livro = new Livro(titulo, autor, genero, editora);

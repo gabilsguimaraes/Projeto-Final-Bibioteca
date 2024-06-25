@@ -16,6 +16,8 @@ public class LivroFisico extends Livro{
         this.numeroPaginas = numeroPaginas;
     }
 
+
+    //aqui precisou usar get pq n tava pegando, nn sei se funciona assim
     @Override
     public String toString() {
         return "LivroFisico{" +
