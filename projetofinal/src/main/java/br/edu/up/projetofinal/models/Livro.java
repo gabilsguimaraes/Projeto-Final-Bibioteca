@@ -19,6 +19,9 @@ public class Livro {
         this.editora = editora;
     }
 
+    public Livro(String dado, String dado1, String dado2) {
+    }
+
     public UUID getUuid() {
         return uuid;
     }

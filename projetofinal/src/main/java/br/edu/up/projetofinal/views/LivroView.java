@@ -111,7 +111,7 @@ public class LivroView {
             livro.setEditora(editora);
 
             //salvando o objeto tarefa
-            TarefaController.atualizar(UUID.fromString(uuid), tarefa);
+            LivroController.atualizar(UUID.fromString(uuid), livro);
         } catch (TarefaNotFoundException ex) {
             Util.showFeedbackMessage(ex.getMessage());
             logger.warn("Ocorreu um erro ao tentar atualizar a tarefa.", ex);
