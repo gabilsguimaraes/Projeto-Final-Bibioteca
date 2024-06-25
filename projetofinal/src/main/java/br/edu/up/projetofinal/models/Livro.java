@@ -5,13 +5,13 @@ import java.util.UUID;
 public class Livro {
     private UUID uuid;
     private String titulo;
-    private Autor autor;
-    private Genero genero;
-    private Editora editora;
+    private String autor;
+    private String genero;
+    private String editora;
 
     public Livro() { }
 
-    public Livro(String titulo,Autor autor, Genero genero, Editora editora) {
+    public Livro(String titulo,String autor, String genero, String editora) {
         this.uuid = UUID.randomUUID();
         this.titulo = titulo;
         this.autor = autor;
@@ -34,11 +34,15 @@ public class Livro {
         return titulo;
     }
 
-    public Autor getAutor() {
+    public String getAutor() {
         return autor;
     }
 
-    public Editora getEditora() {
+    public String getGenero() {
+        return genero;
+    }
+
+    public String getEditora() {
         return editora;
     }
 
@@ -46,15 +50,15 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public void setAutor(Autor autor) {
+    public void setAutor(String autor) {
         this.autor = autor;
     }
 
-    public void setGenero(Genero genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 
-    public void setEditora(Editora editora) {
+    public void setEditora(String editora) {
         this.editora = editora;
     }
 

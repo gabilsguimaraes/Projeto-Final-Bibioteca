@@ -72,7 +72,7 @@ public class LivroView {
             // criando o objeto
             var livro = new Livro(titulo, autor, genero, editora);
 
-            //salvando o objeto tarefa
+            //salvando o objeto livro
             LivroController.cadastrar(livro);
 
         } catch (Exception ex) {
@@ -110,13 +110,13 @@ public class LivroView {
             livro.setGenero(genero);
             livro.setEditora(editora);
 
-            //salvando o objeto tarefa
+            //salvando o objeto
             LivroController.atualizar(UUID.fromString(uuid), livro);
-        } catch (TarefaNotFoundException ex) {
+        } catch (LivroNotFoundException ex) {
             Util.showFeedbackMessage(ex.getMessage());
-            logger.warn("Ocorreu um erro ao tentar atualizar a tarefa.", ex);
+            logger.warn("Ocorreu um erro ao tentar atualizar o livro.", ex);
         } catch (Exception ex) {
-            var message = "Ocorreu um erro ao tentar criar uma tarefa.";
+            var message = "Ocorreu um erro ao tentar cadastrar um livro.";
             Util.showFeedbackMessage(message);
             logger.error(message, ex);
         }
@@ -125,10 +125,10 @@ public class LivroView {
     private static void remover(Scanner scanner) {
         try {
             listar();
-            System.out.println("Qual Tarefa você deseja remover? ");
+            System.out.println("Qual Livro você deseja remover? ");
             var uuid = scanner.nextLine();
 
-            TarefaController.remover(UUID.fromString(uuid));
+            LivroController.remover(UUID.fromString(uuid));
         } catch (LivroNotFoundException ex) {
             Util.showFeedbackMessage(ex.getMessage(), true);
             logger.warn("Ocorreu um erro ao tentar remover o livro.", ex);
@@ -137,7 +137,7 @@ public class LivroView {
 
     private static void listar() {
         var livros = LivroController.listar();
-        System.out.println("######## LISTA DE LIVROS ############");
+        System.out.println("######## LIVROS NO CATALOGO ############");
         livros.forEach(livro -> {
             exibirDadosLivro(livro, false);
         });
