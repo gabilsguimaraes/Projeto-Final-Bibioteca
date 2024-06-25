@@ -1,12 +1,12 @@
 package br.edu.up.projetofinal.controllers;
 
 import br.edu.up.projetofinal.daos.LivroDao;
+import br.edu.up.projetofinal.exceptions.LivroNotFoundException;
+import br.edu.up.projetofinal.models.FormatacaoEscrita;
 import br.edu.up.projetofinal.models.Livro;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.util.UuidUtil;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,16 +20,16 @@ public class LivroController {
         return LivroDao.listarLivros(LIVRO_FILE_NAME);
     }
 
-
-    // adicionar throws LivroNotFoundException
-    public static Livro buscarPorUuid(UUID uuid) {
+    public static Livro buscarPorUuid(UUID uuid) throws LivroNotFoundException {
         var listaLivros = listar();
         Optional<Livro> livro = listaLivros.stream()
                 .filter(t -> t.getUuid().equals(uuid))
                 .findFirst();
+
         if (livro.isEmpty()) {
-            //throw new LivroNotFoundException("Não foi encontrado nenhum Livro com o UUID: " + uuid)
+            throw new LivroNotFoundException("Não foi encontrado nenhum Livro com o UUID: " + uuid)
         }
+
         return livro.get();
     }
 
@@ -37,16 +37,33 @@ public class LivroController {
         LivroDao.escrever(LIVRO_FILE_NAME, List.of(livro), true);
     }
 
+    public static void atualizar(UUID uuid, Livro livroAtualizado)  throws LivroNotFoundException {
+        var livro = buscarPorUuid(uuid);
+        livro.atualizarDados(livroAtualizado);
 
+        var novaListaLivros = removerPorUuid(uuid);
+        novaListaLivros.add(livro);
+        LivroDao.escrever(LIVRO_FILE_NAME, novaListaLivros, false);
+    }
 
+    public static void remover(UUID uuid)  throws LivroNotFoundException{
+        var livro = buscarPorUuid(uuid);
+        var dados = removerPorUuid(uuid);
+        LivroDao.escrever(LIVRO_FILE_NAME, dados, false);
+    }
+
+    private static List<FormatacaoEscrita> removerPorUuid(UUID uuid) {
+        List<FormatacaoEscrita> dados = new ArrayList<>();
+        var livros = listar();
+        livros.forEach(t -> {
+            if (!t.getUuid().equals(uuid)) {
+                dados.add(t);
+            }
+        });
+        return dados;
+    }
 }
 
 
-
-    /*case 0 -> Util.showFeedbackMessage("");
-            case 1 -> cadastar(scanner);
-            case 2 -> atualizar(scanner);
-            case 3 -> remover(scanner);
-            case 4 -> listar();*/
 
 

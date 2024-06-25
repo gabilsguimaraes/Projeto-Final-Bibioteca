@@ -1,6 +1,7 @@
 package br.edu.up.projetofinal.views;
 
 import br.edu.up.projetofinal.controllers.LivroController;
+import br.edu.up.projetofinal.exceptions.LivroNotFoundException;
 import br.edu.up.projetofinal.models.Livro;
 import br.edu.up.projetofinal.utils.Util;
 import org.apache.logging.log4j.LogManager;
@@ -145,5 +146,17 @@ public class LivroView {
             exibirDadosLivro(livro, false);
         });
         System.out.println("########################################");
+    }
+
+    private static void exibirDadosLivro(Livro livro, boolean exibirDetalhes) {
+        System.out.println("UUID: " + livro.getUuid());
+        System.out.println("TITULO: " + livro.getTitulo());
+        if (exibirDetalhes) {
+            //aqui tbm colocar se é físico ou digital
+            System.out.println("AUTOR: " + livro.getAutor());
+            System.out.println("GENERO: " + livro.getGenero());
+            System.out.println("EDITORA: " + livro.getEditora());
+        }
+        System.out.println("-----------------------------------------");
     }
 }

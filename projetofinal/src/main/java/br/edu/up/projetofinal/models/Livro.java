@@ -62,6 +62,13 @@ public class Livro {
         this.editora = editora;
     }
 
+    public void atualizarDados(Livro livro) {
+        this.titulo = livro.getTitulo();
+        this.autor = livro.getAutor();
+        this.genero = livro.getGenero();
+        this.editora = livro.getEditora();
+    }
+
     @Override
     public String toString() {
         return "Livro{" +
