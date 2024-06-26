@@ -22,7 +22,7 @@ public abstract class UsuarioDao extends BaseDao{
             List<Usuario> usuarios = new ArrayList<>();
             while ((linha = reader.readLine()) != null) {
                 var usuario = parse(linha);
-                usuario.add(usuario);
+                usuarios.add(usuario);
             }
             return usuarios;
         } catch (IOException e) {
@@ -35,7 +35,7 @@ public abstract class UsuarioDao extends BaseDao{
         var dados = linha.split(";");
         var uuid = UUID.fromString(dados[0].toString());
         
-        var usuario = new Usuario(dados[1], dados[2], dados[3]);
+        var usuario = new Usuario(dados[1]);
         usuario.setUuid(uuid);
         
         return usuario;

@@ -43,10 +43,10 @@ public class UsuarioController {
 
         var novaListaUsuarios = removerPorUuid(uuid);
         novaListaUsuarios.add(usuario);
-        UsuarioDao.escrever(LIVRO_FILE_NAME, novaListaUsuarios, false);
+        UsuarioDao.escrever(USUARIO_FILE_NAME, novaListaUsuarios, false);
     }
 
-    private static void remover(UUID uuid) throws UsuarioNotFoundException {
+    public static void remover(UUID uuid) throws UsuarioNotFoundException {
         var usuario = buscarUsuarioPorUUID(uuid);
         var dados = removerUsuarioPorUuid(uuid);
         UsuarioDao.escrever(USUARIO_FILE_NAME, dados, false);

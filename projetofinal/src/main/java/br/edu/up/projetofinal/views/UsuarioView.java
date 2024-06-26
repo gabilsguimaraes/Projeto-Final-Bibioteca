@@ -104,7 +104,7 @@ public class UsuarioView {
         var usuarios = UsuarioController.listar();
         System.out.println("######## LIVROS NO CATALOGO ############");
         usuarios.forEach(usuario -> {
-            exibirDadosUsuarios(usuario, false);
+            exibirDadosUsuarios();
         });
         System.out.println("########################################");
     }
