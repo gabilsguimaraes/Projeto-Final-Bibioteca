@@ -66,7 +66,7 @@ public class Emprestimo implements FormatacaoEscrita{
     }
 
     public String dadosFormatado() {
-        return this.uuid+";"+this.livro+";"+this.usuario+";"+this.dataEmprestimo+";"+this.dataDevolucao;
+        return this.uuid+";"+this.livro.getUuid()+";"+this.usuario.getUuid()+";"+this.dataEmprestimo+";"+this.dataDevolucao;
     }
 
     @Override

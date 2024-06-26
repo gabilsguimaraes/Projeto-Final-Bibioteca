@@ -1,5 +1,6 @@
 package br.edu.up.projetofinal;
 
+import br.edu.up.projetofinal.exceptions.UsuarioNotFoundException;
 import br.edu.up.projetofinal.utils.Util;
 import br.edu.up.projetofinal.views.EmprestimoView;
 import br.edu.up.projetofinal.views.LivroView;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UsuarioNotFoundException {
         int op = 0;
         Scanner scanner = new Scanner(System.in);
 
@@ -23,7 +24,7 @@ public class Main {
         } while (op != 0);
     }
 
-    private static void processaEscolhaUsuario(Scanner scanner, int op) {
+    private static void processaEscolhaUsuario(Scanner scanner, int op) throws UsuarioNotFoundException {
         switch (op) {
             case 0 -> System.out.println("Programa encerrado");
             case 1 -> LivroView.iniciar(scanner);

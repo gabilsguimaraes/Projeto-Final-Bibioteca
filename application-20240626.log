@@ -129,3 +129,95 @@ br.edu.up.projetofinal.exceptions.LivroNotFoundException: Não foi encontrado ne
 2024-06-26 05:32:35.789 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
 2024-06-26 05:32:41.845 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
 2024-06-26 05:32:41.846 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:33:55.817 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:34:01.333 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:34:08.447 [main] ERROR br.edu.up.projetofinal.views.EmprestimoView - Ocorreu um erro ao tentar cadastrar um emprestimo.
+java.lang.IllegalArgumentException: Invalid UUID string: e
+	at java.base/java.util.UUID.fromString1(UUID.java:286) ~[?:?]
+	at java.base/java.util.UUID.fromString(UUID.java:264) ~[?:?]
+	at br.edu.up.projetofinal.views.EmprestimoView.cadastrar(EmprestimoView.java:55) [classes/:?]
+	at br.edu.up.projetofinal.views.EmprestimoView.exibirEscolha(EmprestimoView.java:41) [classes/:?]
+	at br.edu.up.projetofinal.views.EmprestimoView.iniciar(EmprestimoView.java:24) [classes/:?]
+	at br.edu.up.projetofinal.Main.processaEscolhaUsuario(Main.java:31) [classes/:?]
+	at br.edu.up.projetofinal.Main.main(Main.java:22) [classes/:?]
+2024-06-26 05:34:08.459 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:34:11.543 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:34:15.386 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:34:25.400 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Iniciando a abertura do arquivo livro.txt
+2024-06-26 05:34:25.400 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
+2024-06-26 05:34:25.404 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:34:27.879 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:34:37.957 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:34:40.558 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Iniciando a abertura do arquivo usuario.txt
+2024-06-26 05:34:40.558 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
+2024-06-26 05:34:40.559 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:34:54.686 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:34:54.688 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:35:05.150 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:35:09.124 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:35:11.192 [main] INFO  br.edu.up.projetofinal.daos.LivroDao - Iniciando a leitura dos dados de Livros
+2024-06-26 05:35:11.194 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:35:22.719 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:35:24.387 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:35:34.420 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:36:39.989 [main] INFO  br.edu.up.projetofinal.daos.LivroDao - Iniciando a leitura dos dados de Livros
+2024-06-26 05:36:39.991 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Iniciando a abertura do arquivo emprestimo.txt
+2024-06-26 05:36:39.992 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
+2024-06-26 05:36:39.992 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:37:00.936 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 05:37:00.937 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:40:55.206 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:40:57.851 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:41:00.843 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 05:41:00.844 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:45:17.258 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:45:20.882 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:45:22.470 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 05:59:21.182 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:59:24.249 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:59:27.312 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 06:08:25.458 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:08:28.762 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:08:29.926 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 06:12:59.597 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:13:01.876 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:13:02.896 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 06:13:29.258 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:13:31.459 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:13:34.427 [main] INFO  br.edu.up.projetofinal.daos.LivroDao - Iniciando a leitura dos dados de Livros
+2024-06-26 06:13:34.447 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:13:55.247 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:13:57.329 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:13:59.259 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 06:13:59.261 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:14:09.082 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:14:10.525 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:14:18.020 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 06:14:22.892 [main] INFO  br.edu.up.projetofinal.daos.LivroDao - Iniciando a leitura dos dados de Livros
+2024-06-26 06:14:22.895 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Iniciando a abertura do arquivo emprestimo.txt
+2024-06-26 06:14:22.895 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
+2024-06-26 06:14:22.901 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:14:25.456 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 06:14:25.456 [main] INFO  br.edu.up.projetofinal.daos.LivroDao - Iniciando a leitura dos dados de Livros
+2024-06-26 06:14:25.457 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 06:14:25.459 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:21:03.319 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:21:06.320 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:21:07.089 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 06:21:07.090 [main] INFO  br.edu.up.projetofinal.daos.LivroDao - Iniciando a leitura dos dados de Livros
+2024-06-26 06:21:07.109 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 06:21:07.112 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:21:19.189 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 06:21:19.190 [main] INFO  br.edu.up.projetofinal.daos.LivroDao - Iniciando a leitura dos dados de Livros
+2024-06-26 06:21:19.191 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 06:21:27.579 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 06:21:27.580 [main] INFO  br.edu.up.projetofinal.daos.LivroDao - Iniciando a leitura dos dados de Livros
+2024-06-26 06:21:27.581 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 06:21:27.582 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 06:21:27.583 [main] INFO  br.edu.up.projetofinal.daos.LivroDao - Iniciando a leitura dos dados de Livros
+2024-06-26 06:21:27.583 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 06:21:27.584 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Iniciando a abertura do arquivo emprestimo.txt
+2024-06-26 06:21:27.584 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
+2024-06-26 06:21:27.585 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 06:21:29.903 [main] INFO  br.edu.up.projetofinal.daos.EmprestimoDao - Iniciando a leitura dos dados de Emprestimos
+2024-06-26 06:21:29.904 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console

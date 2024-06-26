@@ -3,8 +3,8 @@ package br.edu.up.projetofinal.daos;
 import br.edu.up.projetofinal.controllers.LivroController;
 import br.edu.up.projetofinal.controllers.UsuarioController;
 import br.edu.up.projetofinal.exceptions.LivroNotFoundException;
+import br.edu.up.projetofinal.exceptions.UsuarioNotFoundException;
 import br.edu.up.projetofinal.models.Emprestimo;
-import br.edu.up.projetofinal.models.Usuario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,7 +19,7 @@ public abstract class EmprestimoDao extends BaseDao{
 
     private static final Logger logger = LogManager.getLogger(EmprestimoDao.class);
 
-    public static List<Emprestimo> listarEmprestimos(String fileName) throws LivroNotFoundException {
+    public static List<Emprestimo> listarEmprestimos(String fileName) throws LivroNotFoundException, UsuarioNotFoundException {
         logger.info("Iniciando a leitura dos dados de Emprestimos");
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String linha = null;
@@ -35,11 +35,14 @@ public abstract class EmprestimoDao extends BaseDao{
         }
     }
 
-    public static Emprestimo parse(String linha) throws LivroNotFoundException {
+    public static Emprestimo parse(String linha) throws LivroNotFoundException, UsuarioNotFoundException {
         var dados = linha.split(";");
+
         var uuid = UUID.fromString(dados[0].toString());
-        var usuario = UsuarioController.buscarUsuarioPorNome(dados[1]);
-        var livro = LivroController.buscarPorUuid(UUID.fromString(dados[2]));
+        var livroUUID = UUID.fromString(dados[1].toString());
+        var livro = LivroController.buscarPorUuid(livroUUID);
+        var usuarioUUID = UUID.fromString(dados[2].toString());
+        var usuario = UsuarioController.buscarUsuarioPorUUID(usuarioUUID);
 
         var emprestimo = new Emprestimo(usuario, livro);
         emprestimo.setUuid(uuid);

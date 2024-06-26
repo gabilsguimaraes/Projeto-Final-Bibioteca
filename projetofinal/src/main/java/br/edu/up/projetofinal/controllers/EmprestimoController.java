@@ -3,6 +3,7 @@ package br.edu.up.projetofinal.controllers;
 import br.edu.up.projetofinal.daos.EmprestimoDao;
 import br.edu.up.projetofinal.exceptions.EmprestimoNotFoundException;
 import br.edu.up.projetofinal.exceptions.LivroNotFoundException;
+import br.edu.up.projetofinal.exceptions.UsuarioNotFoundException;
 import br.edu.up.projetofinal.models.Emprestimo;
 import br.edu.up.projetofinal.models.FormatacaoEscrita;
 import org.apache.logging.log4j.LogManager;
@@ -18,7 +19,7 @@ public class EmprestimoController {
     private  static  final Logger logger = LogManager.getLogger(EmprestimoController.class);
     private static final String EMPRESTIMO_FILE_NAME = "emprestimo.txt";
 
-    public static List<Emprestimo> listar() {
+    public static List<Emprestimo> listar() throws UsuarioNotFoundException {
         try {
             return EmprestimoDao.listarEmprestimos(EMPRESTIMO_FILE_NAME);
         } catch (LivroNotFoundException e) {
@@ -26,7 +27,7 @@ public class EmprestimoController {
         }
     }
 
-    public static Emprestimo buscarEmprestimoPorUUID(UUID uuid) throws EmprestimoNotFoundException {
+    public static Emprestimo buscarEmprestimoPorUUID(UUID uuid) throws EmprestimoNotFoundException, UsuarioNotFoundException {
         var listarEmprestimos = listar();
         Optional<Emprestimo> emprestimo = listarEmprestimos.stream()
                 .filter(t -> t.getUuid().equals(uuid))
@@ -52,13 +53,13 @@ public class EmprestimoController {
         EmprestimoDao.escrever(EMPRESTIMO_FILE_NAME, novaListaEmprestimos, false);
     } */
 
-    public static void remover(UUID uuid) throws EmprestimoNotFoundException {
+    public static void remover(UUID uuid) throws EmprestimoNotFoundException, UsuarioNotFoundException {
         var emprestimo = buscarEmprestimoPorUUID(uuid);
         var dados = removerEmprestimoPorUuid(uuid);
         EmprestimoDao.escrever(EMPRESTIMO_FILE_NAME, dados, false);
     }
 
-    private static List<FormatacaoEscrita> removerEmprestimoPorUuid(UUID uuid) {
+    private static List<FormatacaoEscrita> removerEmprestimoPorUuid(UUID uuid) throws UsuarioNotFoundException {
         List<FormatacaoEscrita> dados = new ArrayList<>();
         var emprestimos = listar();
         emprestimos.forEach(t -> {

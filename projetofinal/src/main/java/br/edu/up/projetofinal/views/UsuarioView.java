@@ -31,7 +31,7 @@ public class UsuarioView {
         System.out.println("2 - »Alterar«");
         System.out.println("3 - »Remover«");
         System.out.println("4 - »Listar«");
-        System.out.println("0 - »Sair«");
+        System.out.println("0 - »Voltar«");
     }
 
     private static void exibirEscolha(Scanner scanner, int op) {

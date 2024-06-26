@@ -4,6 +4,7 @@ import br.edu.up.projetofinal.controllers.EmprestimoController;
 import br.edu.up.projetofinal.controllers.LivroController;
 import br.edu.up.projetofinal.controllers.UsuarioController;
 import br.edu.up.projetofinal.exceptions.EmprestimoNotFoundException;
+import br.edu.up.projetofinal.exceptions.UsuarioNotFoundException;
 import br.edu.up.projetofinal.models.Emprestimo;
 import br.edu.up.projetofinal.utils.Util;
 import org.apache.logging.log4j.LogManager;
@@ -16,7 +17,7 @@ public class EmprestimoView {
 
     private static final Logger logger = LogManager.getLogger(EmprestimoView.class);
 
-    public static void iniciar(Scanner scanner) {
+    public static void iniciar(Scanner scanner) throws UsuarioNotFoundException {
         int op;
         do {
             exibirMenu();
@@ -32,10 +33,10 @@ public class EmprestimoView {
         System.out.println("1 - »Cadastrar«");
         System.out.println("2 - »Remover«");
         System.out.println("3 - »Listar«");
-        System.out.println("0 - »Sair«");
+        System.out.println("0 - »Voltar«");
     }
 
-    private static void exibirEscolha(Scanner scanner, int op) {
+    private static void exibirEscolha(Scanner scanner, int op) throws UsuarioNotFoundException {
         switch (op) {
             case 0 -> Util.showFeedbackMessage("");
             case 1 -> cadastrar(scanner);
@@ -54,7 +55,7 @@ public class EmprestimoView {
 
             var usuario = UsuarioController.buscarUsuarioPorUUID(UUID.fromString(uuidUsuario));
 
-            System.out.println("Digite o UUID do livro que será emprestado:");
+            System.out.print("Digite o UUID do livro que será emprestado: ");
             var uuidLivro = scanner.nextLine();
 
             var livro = LivroController.buscarPorUuid(UUID.fromString(uuidLivro));
@@ -94,7 +95,7 @@ public class EmprestimoView {
         }
     } */
 
-    private static void remover(Scanner scanner) {
+    private static void remover(Scanner scanner) throws UsuarioNotFoundException {
         try {
             listar();
             System.out.println("Qual emprestimo você deseja remover? ");
@@ -107,26 +108,21 @@ public class EmprestimoView {
         }
     }
 
-    private static void listar() {
+    private static void listar() throws UsuarioNotFoundException {
         var emprestimos = EmprestimoController.listar();
         System.out.println("######## EMPRESTIMOS REALIZADOS ############");
         emprestimos.forEach(emprestimo -> {
-            exibirDadosEmprestimos();
+            exibirDadosEmprestimos(emprestimo);
         });
         System.out.println("########################################");
     }
 
-    public static void exibirDadosEmprestimos() {
-        var emprestimos = EmprestimoController.listar();
-        System.out.println("######## LISTA DE USUARIOS ############");
-        emprestimos.forEach(emprestimo -> {
+    public static void exibirDadosEmprestimos(Emprestimo emprestimo) {
             System.out.println("UUID: " + emprestimo.getUuid());
-            System.out.println("NOME: " + emprestimo.getUsuario());
-            System.out.println("NOME: " + emprestimo.getLivro());
-            System.out.println("NOME: " + emprestimo.getDataEmprestimo());
-            System.out.println("NOME: " + emprestimo.getDataDevolucao());
+            System.out.println("USUARIO: " + emprestimo.getUsuario().getNome());
+            System.out.println("LIVRO: " + emprestimo.getLivro().getTitulo());
+            System.out.println("DATA EMPRESTIMO: " + emprestimo.getDataEmprestimo());
+            System.out.println("DATA DEVOLUCAO: " + emprestimo.getDataDevolucao());
             System.out.println("-----------------------------------------");
-        });
-        System.out.println("########################################");
     }
 }
