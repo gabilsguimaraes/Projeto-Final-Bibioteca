@@ -19,7 +19,7 @@ public abstract class EmprestimoDao extends BaseDao{
 
     private static final Logger logger = LogManager.getLogger(EmprestimoDao.class);
 
-    public static List<Emprestimo> listarEmprestimos(String fileName) {
+    public static List<Emprestimo> listarEmprestimos(String fileName) throws LivroNotFoundException {
         logger.info("Iniciando a leitura dos dados de Emprestimos");
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String linha = null;

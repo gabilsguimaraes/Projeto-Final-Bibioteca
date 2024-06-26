@@ -2,6 +2,7 @@ package br.edu.up.projetofinal.controllers;
 
 import br.edu.up.projetofinal.daos.EmprestimoDao;
 import br.edu.up.projetofinal.exceptions.EmprestimoNotFoundException;
+import br.edu.up.projetofinal.exceptions.LivroNotFoundException;
 import br.edu.up.projetofinal.models.Emprestimo;
 import br.edu.up.projetofinal.models.FormatacaoEscrita;
 import org.apache.logging.log4j.LogManager;
@@ -18,7 +19,11 @@ public class EmprestimoController {
     private static final String EMPRESTIMO_FILE_NAME = "emprestimo.txt";
 
     public static List<Emprestimo> listar() {
-        return EmprestimoDao.listarEmprestimos(EMPRESTIMO_FILE_NAME);
+        try {
+            return EmprestimoDao.listarEmprestimos(EMPRESTIMO_FILE_NAME);
+        } catch (LivroNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static Emprestimo buscarEmprestimoPorUUID(UUID uuid) throws EmprestimoNotFoundException {

@@ -48,16 +48,16 @@ public class LivroView {
 
     private static void cadastrar(Scanner scanner) {
         try {
-            System.out.println("Digite o titulo: ");
+            System.out.print("Digite o titulo: ");
             var titulo = scanner.nextLine();
 
-            System.out.println("Digite o autor: ");
+            System.out.print("Digite o autor: ");
             var autor = scanner.nextLine();
 
-            System.out.println("Digite o gênero: ");
+            System.out.print("Digite o gênero: ");
             var genero = scanner.nextLine();
 
-            System.out.println("Digite a editora: ");
+            System.out.print("Digite a editora: ");
             var editora = scanner.nextLine();
 
             /*
@@ -88,23 +88,23 @@ public class LivroView {
     private static void atualizar(Scanner scanner) {
         try {
             listar();
-            System.out.println("Qual Livro você deseja atualizar?");
+            System.out.println("Qual Livro você deseja atualizar? ");
             var uuid = scanner.nextLine();
 
             System.out.println("####################################");
             System.out.println("ATUALIZAÇÃO");
             System.out.println("####################################");
 
-            System.out.println("Digite o título: ");
+            System.out.print("Digite o título: ");
             var titulo = scanner.nextLine();
 
-            System.out.println("Digite o autor: ");
+            System.out.print("Digite o autor: ");
             var autor = scanner.nextLine();
 
-            System.out.println("Digite o gênero: ");
+            System.out.print("Digite o gênero: ");
             var genero = scanner.nextLine();
 
-            System.out.println("Digite a editora: ");
+            System.out.print("Digite a editora: ");
             var editora = scanner.nextLine();
 
             // salvando o objeto
@@ -141,11 +141,11 @@ public class LivroView {
 
     private static void listar() {
         var livros = LivroController.listar();
-        System.out.println("######## LIVROS NO CATALOGO ############");
+        System.out.println("\n######## LIVROS NO CATALOGO ############");
         livros.forEach(livro -> {
             exibirDadosLivro(livro, false);
         });
-        System.out.println("########################################");
+        System.out.println("########################################\n");
     }
 
     private static void exibirDadosLivro(Livro livro, boolean exibirDetalhes) {
@@ -158,5 +158,6 @@ public class LivroView {
             System.out.println("EDITORA: " + livro.getEditora());
         }
         System.out.println("-----------------------------------------");
+
     }
 }

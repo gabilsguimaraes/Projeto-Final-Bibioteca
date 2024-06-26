@@ -102,21 +102,17 @@ public class UsuarioView {
 
     private static void listar() {
         var usuarios = UsuarioController.listar();
-        System.out.println("######## LIVROS NO CATALOGO ############");
+        System.out.println("######## USUARIOS CADASTRADOS ############");
         usuarios.forEach(usuario -> {
-            exibirDadosUsuarios();
+            exibirDadosUsuarios(usuario);
         });
         System.out.println("########################################");
     }
 
-    public static void exibirDadosUsuarios() {
-        var usuarios = UsuarioController.listar();
-        System.out.println("######## LISTA DE USUARIOS ############");
-        usuarios.forEach(usuario -> {
-            System.out.println("UUID: " + usuario.getUuid());
-            System.out.println("NOME: " + usuario.getNome());
-            System.out.println("-----------------------------------------");
-        });
-        System.out.println("########################################");
+    public static void exibirDadosUsuarios(Usuario usuario) {
+
+        System.out.println("UUID: " + usuario.getUuid());
+        System.out.println("NOME: " + usuario.getNome());
+        System.out.println("-----------------------------------------");
     }
 }

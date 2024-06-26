@@ -35,7 +35,7 @@ public class LivroController {
     }
 
     public static void cadastrar(Livro livro) {
-        LivroDao.escrever(LIVRO_FILE_NAME, List.of((FormatacaoEscrita) livro), true);
+        LivroDao.escrever(LIVRO_FILE_NAME, List.of(livro), true);
     }
 
     public static void atualizar(UUID uuid, Livro livroAtualizado)  throws LivroNotFoundException {
@@ -43,7 +43,7 @@ public class LivroController {
         livro.atualizarDados(livroAtualizado);
 
         var novaListaLivros = removerLivroPorUuid(uuid);
-        novaListaLivros.add((FormatacaoEscrita) livro);
+        novaListaLivros.add(livro);
         LivroDao.escrever(LIVRO_FILE_NAME, novaListaLivros, false);
     }
 
@@ -58,7 +58,7 @@ public class LivroController {
         var livros = listar();
         livros.forEach(t -> {
             if (!t.getUuid().equals(uuid)) {
-                dados.add((FormatacaoEscrita) t);
+                dados.add(t);
             }
         });
         return dados;
