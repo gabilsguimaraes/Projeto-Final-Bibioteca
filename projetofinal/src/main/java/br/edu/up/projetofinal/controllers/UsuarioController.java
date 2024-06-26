@@ -13,27 +13,28 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class UsuarioController {
-
     private  static  final Logger logger = LogManager.getLogger(UsuarioController.class);
     private static final String USUARIO_FILE_NAME = "usuario.txt";
-    private static List<Usuario> usuarios = List.of(
-            new Usuario("João"),
-            new Usuario("Anna")
-    );
 
     public static List<Usuario> listar() {
-        return usuarios;
+        return UsuarioDao.listarUsuarios(USUARIO_FILE_NAME);
     }
 
-    public static Usuario buscarUsuarioPorUUID(UUID uuid) {
-        Optional<Usuario> usuario = usuarios.stream()
+    public static Usuario buscarUsuarioPorUUID(UUID uuid) throws UsuarioNotFoundException {
+        var listaUsuarios = listar();
+        Optional<Usuario> usuario = listaUsuarios.stream()
                 .filter(u -> u.getUuid().equals(uuid))
                 .findFirst();
-        return usuario.isPresent() ? usuario.get() : null;
+
+        if (usuario.isEmpty()) {
+            throw new UsuarioNotFoundException("Não foi encontrado o usuario com o UUID: " + uuid);
+        }
+        return usuario.get();
     }
 
     public static Usuario buscarUsuarioPorNome(String nome) {
-        Optional<Usuario> usuario = usuarios.stream()
+        var listaUsuarios = listar();
+        Optional<Usuario> usuario = listaUsuarios.stream()
                 .filter(u -> u.getNome().equals(nome))
                 .findFirst();
         return usuario.isPresent() ? usuario.get() : null;
@@ -41,7 +42,7 @@ public class UsuarioController {
     }
 
     public static void cadastrar(Usuario usuario) {
-        UsuarioDao.escrever(USUARIO_FILE_NAME, List.of((FormatacaoEscrita) usuario), true);
+        UsuarioDao.escrever(USUARIO_FILE_NAME, List.of(usuario), true);
     }
 
     public static void atualizar(UUID uuid, Usuario usuarioAtualizado) throws UsuarioNotFoundException {
@@ -49,7 +50,7 @@ public class UsuarioController {
         usuario.atualizarDadosUsuario(usuarioAtualizado);
 
         var novaListaUsuarios = removerUsuarioPorUuid(uuid);
-        novaListaUsuarios.add((FormatacaoEscrita) usuario);
+        novaListaUsuarios.add(usuario);
         UsuarioDao.escrever(USUARIO_FILE_NAME, novaListaUsuarios, false);
     }
 

@@ -103,3 +103,29 @@ br.edu.up.projetofinal.exceptions.LivroNotFoundException: Não foi encontrado ne
 2024-06-26 05:22:55.091 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
 2024-06-26 05:22:55.092 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
 2024-06-26 05:22:56.875 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:31:53.123 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:31:58.580 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:32:01.349 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Iniciando a abertura do arquivo usuario.txt
+2024-06-26 05:32:01.350 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
+2024-06-26 05:32:01.351 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:32:04.979 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Iniciando a abertura do arquivo usuario.txt
+2024-06-26 05:32:04.980 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
+2024-06-26 05:32:04.980 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:32:06.977 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:32:06.979 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:32:22.900 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:32:28.001 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:32:28.002 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:32:28.003 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Iniciando a abertura do arquivo usuario.txt
+2024-06-26 05:32:28.004 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
+2024-06-26 05:32:28.004 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:32:29.772 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:32:29.773 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:32:34.124 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:32:35.787 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:32:35.788 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:32:35.788 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Iniciando a abertura do arquivo usuario.txt
+2024-06-26 05:32:35.788 [main] INFO  br.edu.up.projetofinal.daos.BaseDao - Escrendo as informações no arquivo .txt
+2024-06-26 05:32:35.789 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
+2024-06-26 05:32:41.845 [main] INFO  br.edu.up.projetofinal.daos.UsuarioDao - Iniciando a leitura dos dados de Usuarios
+2024-06-26 05:32:41.846 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
