@@ -1,4 +1,4 @@
-package br.edu.up.projetofinal.controllers;
+package br.edu.up.projetofinal;
 
 import br.edu.up.projetofinal.exceptions.UsuarioNotFoundException;
 import br.edu.up.projetofinal.utils.Util;

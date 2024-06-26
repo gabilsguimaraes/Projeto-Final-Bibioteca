@@ -22,8 +22,8 @@ java.lang.IllegalArgumentException: Invalid UUID string: rg
 	at br.edu.up.projetofinal.views.EmprestimoView.cadastrar(EmprestimoView.java:55) [classes/:?]
 	at br.edu.up.projetofinal.views.EmprestimoView.exibirEscolha(EmprestimoView.java:41) [classes/:?]
 	at br.edu.up.projetofinal.views.EmprestimoView.iniciar(EmprestimoView.java:24) [classes/:?]
-	at br.edu.up.projetofinal.controllers.Main.processaEscolhaUsuario(Main.java:31) [classes/:?]
-	at br.edu.up.projetofinal.controllers.Main.main(Main.java:22) [classes/:?]
+	at br.edu.up.projetofinal.Main.processaEscolhaUsuario(Main.java:31) [classes/:?]
+	at br.edu.up.projetofinal.Main.main(Main.java:22) [classes/:?]
 2024-06-26 05:05:04.731 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
 2024-06-26 05:05:13.822 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
 2024-06-26 05:05:16.908 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
@@ -37,8 +37,8 @@ br.edu.up.projetofinal.exceptions.LivroNotFoundException: Não foi encontrado ne
 	at br.edu.up.projetofinal.views.EmprestimoView.cadastrar(EmprestimoView.java:60) [classes/:?]
 	at br.edu.up.projetofinal.views.EmprestimoView.exibirEscolha(EmprestimoView.java:41) [classes/:?]
 	at br.edu.up.projetofinal.views.EmprestimoView.iniciar(EmprestimoView.java:24) [classes/:?]
-	at br.edu.up.projetofinal.controllers.Main.processaEscolhaUsuario(Main.java:31) [classes/:?]
-	at br.edu.up.projetofinal.controllers.Main.main(Main.java:22) [classes/:?]
+	at br.edu.up.projetofinal.Main.processaEscolhaUsuario(Main.java:31) [classes/:?]
+	at br.edu.up.projetofinal.Main.main(Main.java:22) [classes/:?]
 2024-06-26 05:05:38.701 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
 2024-06-26 05:05:58.709 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
 2024-06-26 05:06:00.133 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
@@ -138,8 +138,8 @@ java.lang.IllegalArgumentException: Invalid UUID string: e
 	at br.edu.up.projetofinal.views.EmprestimoView.cadastrar(EmprestimoView.java:55) [classes/:?]
 	at br.edu.up.projetofinal.views.EmprestimoView.exibirEscolha(EmprestimoView.java:41) [classes/:?]
 	at br.edu.up.projetofinal.views.EmprestimoView.iniciar(EmprestimoView.java:24) [classes/:?]
-	at br.edu.up.projetofinal.controllers.Main.processaEscolhaUsuario(Main.java:31) [classes/:?]
-	at br.edu.up.projetofinal.controllers.Main.main(Main.java:22) [classes/:?]
+	at br.edu.up.projetofinal.Main.processaEscolhaUsuario(Main.java:31) [classes/:?]
+	at br.edu.up.projetofinal.Main.main(Main.java:22) [classes/:?]
 2024-06-26 05:34:08.459 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
 2024-06-26 05:34:11.543 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
 2024-06-26 05:34:15.386 [main] INFO  br.edu.up.projetofinal.utils.Util - Iniciando leitura do console
