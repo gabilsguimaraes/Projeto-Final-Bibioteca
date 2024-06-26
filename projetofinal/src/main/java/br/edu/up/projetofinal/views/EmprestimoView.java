@@ -3,6 +3,7 @@ package br.edu.up.projetofinal.views;
 import br.edu.up.projetofinal.controllers.EmprestimoController;
 import br.edu.up.projetofinal.exceptions.EmprestimoNotFoundException;
 import br.edu.up.projetofinal.models.Emprestimo;
+import br.edu.up.projetofinal.models.Usuario;
 import br.edu.up.projetofinal.utils.Util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -52,7 +53,7 @@ public class EmprestimoView {
             System.out.print("Digite o nome do usuário: ");
             var nome = scanner.nextLine();
 
-            var emprestimo = new Emprestimo(nome);
+            var emprestimo = new Emprestimo();
 
             EmprestimoController.cadastrar(emprestimo);
 
@@ -64,7 +65,7 @@ public class EmprestimoView {
     private static void atualizar(Scanner scanner) {
         try {
             listar();
-            System.out.println("Qual usuário você deseja atualizar?");
+            System.out.println("Qual emprestimo você deseja atualizar?");
             var uuid = scanner.nextLine();
 
             System.out.println("####################################");

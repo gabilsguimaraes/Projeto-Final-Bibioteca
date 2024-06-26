@@ -29,4 +29,8 @@ public class Usuario {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public void atualizarDadosUsuario(Usuario usuario) {
+        this.nome = usuario.getNome();
+    }
 }
