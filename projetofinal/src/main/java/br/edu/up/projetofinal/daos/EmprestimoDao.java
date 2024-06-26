@@ -1,6 +1,10 @@
 package br.edu.up.projetofinal.daos;
 
+import br.edu.up.projetofinal.controllers.LivroController;
+import br.edu.up.projetofinal.controllers.UsuarioController;
+import br.edu.up.projetofinal.exceptions.LivroNotFoundException;
 import br.edu.up.projetofinal.models.Emprestimo;
+import br.edu.up.projetofinal.models.Usuario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,11 +35,13 @@ public abstract class EmprestimoDao extends BaseDao{
         }
     }
 
-    public static Emprestimo parse(String linha) {
+    public static Emprestimo parse(String linha) throws LivroNotFoundException {
         var dados = linha.split(";");
         var uuid = UUID.fromString(dados[0].toString());
+        var usuario = UsuarioController.buscarUsuarioPorNome(dados[1]);
+        var livro = LivroController.buscarPorUuid(UUID.fromString(dados[2]));
 
-        var emprestimo = new Emprestimo(dados[1]);
+        var emprestimo = new Emprestimo(usuario, livro);
         emprestimo.setUuid(uuid);
 
         return emprestimo;

@@ -3,7 +3,7 @@ package br.edu.up.projetofinal.models;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Emprestimo {
+public class Emprestimo implements FormatacaoEscrita{
     private UUID uuid;
     private Usuario usuario;
     private Livro livro;
@@ -65,9 +65,13 @@ public class Emprestimo {
         return dataEmprestimo.plusDays(7);
     }
 
+    public String dadosFormatado() {
+        return this.uuid+";"+this.livro+";"+this.usuario+";"+this.dataEmprestimo+";"+this.dataDevolucao;
+    }
+
     @Override
     public String toString() {
-        return "LivroDigital{" +
+        return "Emprestimo{" +
                 "uuid=" + getUuid() +
                 ", livro='" + livro + '\'' +
                 ", usuario='" + usuario + '\'' +

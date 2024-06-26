@@ -4,6 +4,7 @@ import br.edu.up.projetofinal.daos.LivroDao;
 import br.edu.up.projetofinal.exceptions.LivroNotFoundException;
 import br.edu.up.projetofinal.models.FormatacaoEscrita;
 import br.edu.up.projetofinal.models.Livro;
+import br.edu.up.projetofinal.models.Usuario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -35,7 +35,7 @@ public abstract class LivroDao extends BaseDao {
         var dados = linha.split(";");
         var uuid = UUID.fromString(dados[0].toString());
 
-        var livro = new Livro (dados[1], dados[2], dados[3]);
+        var livro = new Livro (dados[1], dados[2], dados[3], dados[4]);
         livro.setUuid(uuid);
 
         return livro;

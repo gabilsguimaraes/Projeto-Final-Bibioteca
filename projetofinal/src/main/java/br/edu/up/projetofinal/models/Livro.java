@@ -2,7 +2,7 @@ package br.edu.up.projetofinal.models;
 
 import java.util.UUID;
 
-public class Livro {
+public class Livro implements FormatacaoEscrita{
     private UUID uuid;
     private String titulo;
     private String autor;
@@ -67,6 +67,10 @@ public class Livro {
         this.autor = livro.getAutor();
         this.genero = livro.getGenero();
         this.editora = livro.getEditora();
+    }
+
+    public String dadosFormatado() {
+        return this.uuid+";"+this.titulo+";"+this.autor+";"+this.genero+";"+this.editora;
     }
 
     @Override

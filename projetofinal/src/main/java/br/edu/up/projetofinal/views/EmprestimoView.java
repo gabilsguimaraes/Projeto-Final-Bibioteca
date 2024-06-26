@@ -1,9 +1,10 @@
 package br.edu.up.projetofinal.views;
 
 import br.edu.up.projetofinal.controllers.EmprestimoController;
+import br.edu.up.projetofinal.controllers.LivroController;
+import br.edu.up.projetofinal.controllers.UsuarioController;
 import br.edu.up.projetofinal.exceptions.EmprestimoNotFoundException;
 import br.edu.up.projetofinal.models.Emprestimo;
-import br.edu.up.projetofinal.models.Usuario;
 import br.edu.up.projetofinal.utils.Util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,13 +26,12 @@ public class EmprestimoView {
     }
 
     private static void exibirMenu() {
-        System.out.println("╔═════════════════════════╗");
-        System.out.println("║        »USUÁRIO«        ║");
-        System.out.println("╚═════════════════════════╝");
+        System.out.println("╔══════════════════════════╗");
+        System.out.println("║       »EMPRESTIMO«       ║");
+        System.out.println("╚══════════════════════════╝");
         System.out.println("1 - »Cadastrar«");
-        System.out.println("2 - »Alterar«");
-        System.out.println("3 - »Remover«");
-        System.out.println("4 - »Listar«");
+        System.out.println("2 - »Remover«");
+        System.out.println("3 - »Listar«");
         System.out.println("0 - »Sair«");
     }
 
@@ -39,9 +39,8 @@ public class EmprestimoView {
         switch (op) {
             case 0 -> Util.showFeedbackMessage("");
             case 1 -> cadastrar(scanner);
-            case 2 -> atualizar(scanner);
-            case 3 -> remover(scanner);
-            case 4 -> listar();
+            case 2 -> remover(scanner);
+            case 3 -> listar();
 
             case 99 -> Util.showFeedbackMessage("Informe um valor inteiro.");
             default -> Util.showFeedbackMessage("Opção invalida! Favor escolher opção existente no menu.");
@@ -50,10 +49,17 @@ public class EmprestimoView {
 
     private static void cadastrar(Scanner scanner) {
         try {
-            System.out.print("Digite o nome do usuário: ");
-            var nome = scanner.nextLine();
+            System.out.print("Digite o UUID do usuário que fará o emprestimo: ");
+            var uuidUsuario = scanner.nextLine();
 
-            var emprestimo = new Emprestimo();
+            var usuario = UsuarioController.buscarUsuarioPorUUID(UUID.fromString(uuidUsuario));
+
+            System.out.println("Digite o UUID do livro que será emprestado:");
+            var uuidLivro = scanner.nextLine();
+
+            var livro = LivroController.buscarPorUuid(UUID.fromString(uuidLivro));
+
+            var emprestimo = new Emprestimo(usuario, livro);
 
             EmprestimoController.cadastrar(emprestimo);
 
@@ -62,7 +68,7 @@ public class EmprestimoView {
         }
     }
 
-    private static void atualizar(Scanner scanner) {
+    /*private static void atualizar(Scanner scanner) {
         try {
             listar();
             System.out.println("Qual emprestimo você deseja atualizar?");
@@ -86,12 +92,12 @@ public class EmprestimoView {
             Util.showFeedbackMessage(message);
             logger.error(message, ex);
         }
-    }
+    } */
 
     private static void remover(Scanner scanner) {
         try {
             listar();
-            System.out.println("Qual usuário você deseja remover? ");
+            System.out.println("Qual emprestimo você deseja remover? ");
             var uuid = scanner.nextLine();
 
             EmprestimoController.remover(UUID.fromString(uuid));
@@ -103,7 +109,7 @@ public class EmprestimoView {
 
     private static void listar() {
         var emprestimos = EmprestimoController.listar();
-        System.out.println("######## LIVROS NO CATALOGO ############");
+        System.out.println("######## EMPRESTIMOS REALIZADOS ############");
         emprestimos.forEach(emprestimo -> {
             exibirDadosEmprestimos();
         });
@@ -115,7 +121,10 @@ public class EmprestimoView {
         System.out.println("######## LISTA DE USUARIOS ############");
         emprestimos.forEach(emprestimo -> {
             System.out.println("UUID: " + emprestimo.getUuid());
-            System.out.println("NOME: " + emprestimo.getNome());
+            System.out.println("NOME: " + emprestimo.getUsuario());
+            System.out.println("NOME: " + emprestimo.getLivro());
+            System.out.println("NOME: " + emprestimo.getDataEmprestimo());
+            System.out.println("NOME: " + emprestimo.getDataDevolucao());
             System.out.println("-----------------------------------------");
         });
         System.out.println("########################################");
