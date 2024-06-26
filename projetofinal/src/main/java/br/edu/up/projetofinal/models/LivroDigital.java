@@ -16,7 +16,6 @@ public class LivroDigital extends Livro {
         this.tamanhoArquivo = tamanhoArquivo;
     }
 
-    //aqui precisou usar get pq n tava pegando, nn sei se funciona assim
     @Override
     public String toString() {
         return "LivroDigital{" +
