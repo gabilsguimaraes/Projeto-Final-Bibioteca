@@ -56,7 +56,7 @@ public class UsuarioView {
             UsuarioController.cadastrar(usuario);
 
         } catch (Exception ex) {
-            logger.error("Ocorreu um erro ao tentar cadastrar um livro.", ex);
+            logger.error("Ocorreu um erro ao tentar cadastrar um usuario.", ex);
         }
     }
 
@@ -102,8 +102,8 @@ public class UsuarioView {
     private static void listar() {
         var usuarios = UsuarioController.listar();
         System.out.println("######## LIVROS NO CATALOGO ############");
-        usuarios.forEach(livro -> {
-            exibirDadosLivro(livro, false);
+        usuarios.forEach(usuario -> {
+            exibirDadosLivro(usuario, false);
         });
         System.out.println("########################################");
     }

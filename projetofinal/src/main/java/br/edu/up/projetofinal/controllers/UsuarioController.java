@@ -1,5 +1,7 @@
 package br.edu.up.projetofinal.controllers;
 
+import br.edu.up.projetofinal.daos.UsuarioDao;
+import br.edu.up.projetofinal.exceptions.UsuarioNotFoundException;
 import br.edu.up.projetofinal.models.Usuario;
 
 import java.util.List;
@@ -30,4 +32,24 @@ public class UsuarioController {
         return usuario.isPresent() ? usuario.get() : null;
 
     }
+
+    public static void cadastrar(Usuario usuario) {
+        UsuarioDao.escrever(USUARIO_FILE_NAME, List.of(usuario), true);
+    }
+
+    public static void atualizar(UUID uuid, Usuario usuarioAtualizado) throws UsuarioNotFoundException {
+        var usuario = buscarUsuarioPorUUID(uuid);
+        usuario.atualizarDados(usuarioAtualizado);
+
+        var novaListaUsuarios = removerPorUuid(uuid);
+        novaListaUsuarios.add(usuario);
+        UsuarioDao.escrever(LIVRO_FILE_NAME, novaListaUsuarios, false);
+    }
+
+    private static void remover(UUID uuid) throws UsuarioNotFoundException {
+        var usuario = buscarUsuarioPorUUID(uuid);
+        var dados = removerUsuarioPorUuid(uuid);
+        UsuarioDao.escrever(USUARIO_FILE_NAME, dados, false);
+    }
+
 }
