@@ -6,6 +6,8 @@ import br.edu.up.projetofinal.exceptions.LivroNotFoundException;
 import br.edu.up.projetofinal.exceptions.UsuarioNotFoundException;
 import br.edu.up.projetofinal.models.Emprestimo;
 import br.edu.up.projetofinal.models.FormatacaoEscrita;
+import br.edu.up.projetofinal.models.LivroDigital;
+import br.edu.up.projetofinal.models.LivroFisico;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -69,6 +71,20 @@ public class EmprestimoController {
         });
         return dados;
     }
+    private static void exibirDadosEmprestimo(Emprestimo emprestimo) {
+        System.out.println("UUID: " + emprestimo.getUuid());
+        System.out.println("USUÁRIO: " + emprestimo.getUsuario().getNome());
+        System.out.println("LIVRO: " + emprestimo.getLivro().getTitulo());
+
+        if (emprestimo.getLivro() instanceof LivroFisico) {
+            System.out.println("TIPO DE LIVRO: Físico");
+            System.out.println("NÚMERO DE PÁGINAS: " + ((LivroFisico) emprestimo.getLivro()).getNumeroPaginas());
+        } else if (emprestimo.getLivro() instanceof LivroDigital) {
+            System.out.println("TIPO DE LIVRO: Digital");
+            System.out.println("TAMANHO DO ARQUIVO: " + ((LivroDigital) emprestimo.getLivro()).getTamanhoArquivo() + " MB");
+        }
 
 
+    }
 }
+

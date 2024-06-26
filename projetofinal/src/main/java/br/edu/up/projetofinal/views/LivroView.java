@@ -3,6 +3,8 @@ package br.edu.up.projetofinal.views;
 import br.edu.up.projetofinal.controllers.LivroController;
 import br.edu.up.projetofinal.exceptions.LivroNotFoundException;
 import br.edu.up.projetofinal.models.Livro;
+import br.edu.up.projetofinal.models.LivroDigital;
+import br.edu.up.projetofinal.models.LivroFisico;
 import br.edu.up.projetofinal.utils.Util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -60,29 +62,30 @@ public class LivroView {
             System.out.print("Digite a editora: ");
             var editora = scanner.nextLine();
 
-            /*
-            *
-            Aqui queria colocar a opção de escolher se o livro é digital ou físico,
-            deixei isso aqui comentado pra talvez depois usar de base:
+            System.out.print("O livro é físico ou digital? (F/D): ");
+            var tipo = scanner.nextLine().toUpperCase();
 
-            UsuarioView.exibirDadosUsuarios();
-            System.out.println("Escolha o usuario por UUID: ");
-            var uuid = scanner.nextLine();
+            Livro livro;
 
-            var usuario = UsuarioController.buscarUsuarioPorUUID(UUID.fromString(uuid));
-            *
-            */
+            if (tipo.equals("F")) {
+                System.out.print("Digite o número de páginas: ");
+                var numeroPaginas = Integer.parseInt(scanner.nextLine());
+                livro = new LivroFisico(titulo, autor, genero, editora, numeroPaginas);
+            } else if (tipo.equals("D")) {
+                System.out.print("Digite o tamanho do arquivo em MB: ");
+                var tamanhoArquivo = Double.parseDouble(scanner.nextLine());
+                livro = new LivroDigital(titulo, autor, genero, editora, tamanhoArquivo);
+            } else {
+                System.out.println("Tipo de livro inválido!");
+                return;
+            }
 
-            // criando o objeto
-            var livro = new Livro(titulo, autor, genero, editora);
-
-            //salvando o objeto livro
             LivroController.cadastrar(livro);
-
         } catch (Exception ex) {
             logger.error("Ocorreu um erro ao tentar cadastrar um livro.", ex);
         }
     }
+
 
 
     private static void atualizar(Scanner scanner) {
@@ -151,6 +154,10 @@ public class LivroView {
     private static void exibirDadosLivro(Livro livro, boolean exibirDetalhes) {
         System.out.println("UUID: " + livro.getUuid());
         System.out.println("TITULO: " + livro.getTitulo());
+        System.out.println("AUTOR: " + livro.getAutor());
+        System.out.println("GENERO: " + livro.getGenero());
+        System.out.println("EDITORA: " + livro.getEditora());
+
         if (exibirDetalhes) {
             //aqui tbm colocar se é físico ou digital
             System.out.println("AUTOR: " + livro.getAutor());
