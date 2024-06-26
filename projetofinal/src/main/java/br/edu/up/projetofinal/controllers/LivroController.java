@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class LivroController {
-    private static Logger logger = LogManager.getLogger(LivroController.class);
+    private static final Logger logger = LogManager.getLogger(LivroController.class);
     private static final String LIVRO_FILE_NAME = "livro.txt";
 
     public static List<Livro> listar() {
@@ -27,37 +27,37 @@ public class LivroController {
                 .findFirst();
 
         if (livro.isEmpty()) {
-            throw new LivroNotFoundException("Não foi encontrado nenhum Livro com o UUID: " + uuid)
+            throw new LivroNotFoundException("Não foi encontrado nenhum Livro com o UUID: " + uuid);
         }
 
         return livro.get();
     }
 
     public static void cadastrar(Livro livro) {
-        LivroDao.escrever(LIVRO_FILE_NAME, List.of(livro), true);
+        LivroDao.escrever(LIVRO_FILE_NAME, List.of((FormatacaoEscrita) livro), true);
     }
 
     public static void atualizar(UUID uuid, Livro livroAtualizado)  throws LivroNotFoundException {
         var livro = buscarPorUuid(uuid);
         livro.atualizarDados(livroAtualizado);
 
-        var novaListaLivros = removerPorUuid(uuid);
-        novaListaLivros.add(livro);
+        var novaListaLivros = removerLivroPorUuid(uuid);
+        novaListaLivros.add((FormatacaoEscrita) livro);
         LivroDao.escrever(LIVRO_FILE_NAME, novaListaLivros, false);
     }
 
     public static void remover(UUID uuid)  throws LivroNotFoundException{
         var livro = buscarPorUuid(uuid);
-        var dados = removerPorUuid(uuid);
+        var dados = removerLivroPorUuid(uuid);
         LivroDao.escrever(LIVRO_FILE_NAME, dados, false);
     }
 
-    private static List<FormatacaoEscrita> removerPorUuid(UUID uuid) {
+    private static List<FormatacaoEscrita> removerLivroPorUuid(UUID uuid) {
         List<FormatacaoEscrita> dados = new ArrayList<>();
         var livros = listar();
         livros.forEach(t -> {
             if (!t.getUuid().equals(uuid)) {
-                dados.add(t);
+                dados.add((FormatacaoEscrita) t);
             }
         });
         return dados;

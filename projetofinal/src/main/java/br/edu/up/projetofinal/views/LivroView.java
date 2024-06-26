@@ -107,8 +107,8 @@ public class LivroView {
             System.out.println("Digite a editora: ");
             var editora = scanner.nextLine();
 
-            // criando o objeto
-            var livro = new Livro(titulo, autor, genero, editora);
+            // salvando o objeto
+            var livro = new Livro();
             livro.setTitulo(titulo);
             livro.setAutor(autor);
             livro.setGenero(genero);
