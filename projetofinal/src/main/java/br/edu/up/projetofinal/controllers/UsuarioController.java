@@ -8,8 +8,8 @@ import java.util.UUID;
 
 public class UsuarioController {
     private static List<Usuario> usuarios = List.of(
-            new Usuario(UUID.fromString("1c30ac00-f5ff-4a6e-bf5e-fcac61bb61d1"), "João"),
-            new Usuario(UUID.fromString("a4efb4fe-2c43-4a41-bc35-1332af1117fe"), "Anna")
+            new Usuario("João"),
+            new Usuario("Anna")
     );
 
     public static List<Usuario> listar() {

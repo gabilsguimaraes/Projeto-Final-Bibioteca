@@ -2,6 +2,7 @@ package br.edu.up.projetofinal;
 
 import br.edu.up.projetofinal.utils.Util;
 import br.edu.up.projetofinal.views.LivroView;
+import br.edu.up.projetofinal.views.UsuarioView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,6 +26,7 @@ public class Main {
         switch (op) {
             case 0 -> System.out.println("Programa encerrado");
             case 1 -> LivroView.iniciar(scanner);
+            case 2 -> UsuarioView.iniciar(scanner);
             case 99 -> Util.showFeedbackMessage("Informe um valor inteiro.");
             default -> Util.showFeedbackMessage("Opção invalida! Favor escolher opção existente no menu.");
         }

@@ -18,7 +18,7 @@ public class Emprestimo {
         this.usuario = usuario;
         this.livro = livro;
         this.dataEmprestimo = LocalDate.now();
-        this.dataDevolucao = dataDevolucao;
+        this.dataDevolucao = calcDevolucao(dataEmprestimo);
     }
 
     public UUID getUuid() {
@@ -59,6 +59,10 @@ public class Emprestimo {
 
     public void setDataDevolucao(LocalDate dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
+    }
+
+    public LocalDate calcDevolucao(LocalDate dataEmprestimo) {
+        return dataEmprestimo.plusDays(7);
     }
 
     @Override
