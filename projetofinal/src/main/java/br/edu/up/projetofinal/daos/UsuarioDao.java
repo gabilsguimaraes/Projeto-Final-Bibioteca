@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class UsuarioDao extends BaseDao{
+public abstract class UsuarioDao extends BaseDao{
 
     private static final Logger logger = LogManager.getLogger(UsuarioDao.class);
 

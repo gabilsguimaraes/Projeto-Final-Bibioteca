@@ -1,6 +1,7 @@
 package br.edu.up.projetofinal.views;
 
 import br.edu.up.projetofinal.controllers.UsuarioController;
+import br.edu.up.projetofinal.exceptions.UsuarioNotFoundException;
 import br.edu.up.projetofinal.models.Usuario;
 import br.edu.up.projetofinal.utils.Util;
 import org.apache.logging.log4j.LogManager;
@@ -103,7 +104,7 @@ public class UsuarioView {
         var usuarios = UsuarioController.listar();
         System.out.println("######## LIVROS NO CATALOGO ############");
         usuarios.forEach(usuario -> {
-            exibirDadosLivro(usuario, false);
+            exibirDadosUsuarios(usuario, false);
         });
         System.out.println("########################################");
     }
