@@ -10,7 +10,7 @@ public class Usuario {
     }
 
     public Usuario(UUID uuid, String nome) {
-        this.uuid = uuid;
+        this.uuid = UUID.randomUUID();
         this.nome = nome;
     }
 

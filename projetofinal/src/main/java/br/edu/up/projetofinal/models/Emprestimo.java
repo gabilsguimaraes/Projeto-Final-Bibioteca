@@ -13,11 +13,11 @@ public class Emprestimo {
     public Emprestimo() {
     }
 
-    public Emprestimo(UUID uuid, Usuario usuario, Livro livro, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
-        this.uuid = uuid;
+    public Emprestimo(UUID uuid, Usuario usuario, Livro livro, LocalDate dataDevolucao) {
+        this.uuid = UUID.randomUUID();
         this.usuario = usuario;
         this.livro = livro;
-        this.dataEmprestimo = dataEmprestimo;
+        this.dataEmprestimo = LocalDate.now();
         this.dataDevolucao = dataDevolucao;
     }
 
