@@ -92,6 +92,7 @@ public class LivroView {
         try {
             listar();
             System.out.println("Qual Livro você deseja atualizar? ");
+            System.out.println("Escreva o ID");
             var uuid = scanner.nextLine();
 
             System.out.println("####################################");
@@ -133,6 +134,7 @@ public class LivroView {
         try {
             listar();
             System.out.println("Qual Livro você deseja remover? ");
+            System.out.println("Escreva o ID ");
             var uuid = scanner.nextLine();
 
             LivroController.remover(UUID.fromString(uuid));
